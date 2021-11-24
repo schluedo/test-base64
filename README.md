@@ -1,0 +1,2 @@
+- run src/test/resources/security-domain.cli in JBoss CLI
+- run LoginTest

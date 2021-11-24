@@ -1,0 +1,4 @@
+batch
+/subsystem=security/security-domain=testsecdomain:add(cache-type=default)
+/subsystem=security/security-domain=testsecdomain/authentication=classic:add(login-modules=[{code=Database,flag=required,module-options={dsJndiName=java:jboss/datasources/ExampleDS,principalsQuery="SELECT PASSWORD_HASH FROM LOGIN_USERS WHERE username=?",rolesQuery="SELECT 'testrole', 'Roles' FROM LOGIN_USERS WHERE username=?",hashAlgorithm="SHA-512",hashEncoding="base64"}}]
+run-batch

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+	<display-name>Test</display-name>
+	<listener>
+		<listener-class>test.InitListener</listener-class>
+	</listener>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secure Content</web-resource-name>
+			<url-pattern>/secure/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>testrole</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>The Restricted Zone</realm-name>
+	</login-config>
+	<security-role>
+		<description>The role required to access restricted content</description>
+		<role-name>testrole</role-name>
+	</security-role>
+</web-app>
